@@ -9,11 +9,11 @@ let characterImage2 = new Image();
 let floorImage = new Image();
 let explosionImage = new Image(); // Add explosionImage variable here
 function loadAssets(callback) {
-  backgroundImage.src = 'gamebackground2.png';
+  backgroundImage.src = 'sf.jpg';
   backgroundImage.onload = function () {
-    characterImage1.src = 'character1.png'; // Replace with the path to your first character image
+    characterImage1.src = 'ike-2.png'; // Replace with the path to your first character image
     characterImage1.onload = function () {
-      characterImage2.src = 'character2.png'; // Replace with the path to your second character image
+      characterImage2.src = 'ike-1.png'; // Replace with the path to your second character image
       characterImage2.onload = function () {
         floorImage.src = 'lavafloor.png'; // Replace with the path to your floor tile image
         floorImage.onload = function () {
@@ -446,6 +446,7 @@ function detectPlatformCollision() {
     // Draw the score box and high score box
     drawScoreBox();
     drawHighScoreBox();
+    drawRankBox()
   
     // Display the "Game Over" message and "Reset" button
     drawGameOverAndReset();
@@ -525,6 +526,13 @@ function detectPlatformCollision() {
     ctx.fillStyle = 'black';
     ctx.font = '20px Arial';
     ctx.fillText(`Score: ${player.score}`, 10, 30);
+  }
+
+  function drawRankBox() {
+    drawRoundedRect(5, 45, 150, 35, 5, 'white', 'black', 3);
+    ctx.fillStyle = 'black';
+    ctx.font = '20px Arial';
+    ctx.fillText(`Rank: Scout `, 10, 70);
   }
   
   function drawHighScoreBox() {
